@@ -3,41 +3,52 @@
 |             --------        | ------ | ----------- |
 |             name            | string | null: false |
 |             email           | string | null: false |
-|             password        | string | null: false |
-|             password second | string | null: false |
-|             first name      | string | null: false |
-|             second name     | string | null: false |
-|             first name kana | string | null: false |
-|             last name kana  | string | null: false |
-|             year            | string | null: false |
-|             month           | string | null: false |
-|             day             | string | null: false |
+|          encrypted_password | string | null: false |
+|             first_name      | string | null: false |
+|             last_name       | string | null: false |
+|            first_name_kana  | string | null: false |
+|           last_name_kana    | string | null: false |
+|             date            | string | null: false |
+
+Association
+has_many :items
 
 ## items テーブル
 
 | Column       |  Type       | Options     |
 | -----------  |  -----------|  ---------- |
-| product name |  text       | null: false |
+| product_name |  string     | null: false |
 | description  |  text       | null: false |
+| category     |  string     | null: false |
 | status       |  string     | null: false |
-| price        |  string     | null: false |
+| price        |  integer    | null: false |
 | exhibitor    |  string     | null: false |
+|
+
+Association
+has_one:purchaser
 
 ### purchaserテーブル
 
 | Column      |  Type       | Options     |
 | ----------- |  -----------|  ---------- |
-| name        |  text       | null: false |
-| name        |  buy       |  null: false |
+| name        |  string     | null: false |
+| bought_item |  string     | null: false |
+
+Association
+belongs_to:items
 
 ## mailing adressテーブル
 
 | Column       |  Type       | Options     |
 | -----------  |  -----------|  ---------- |
-|  name        |  string     | null: false |
-| postal code  |  string     | null: false |
-| pref         |  string     | null: false |
+| postal_code  |  string     | null: false |
 | manicipality |  string     | null: false |
 | adress       |  string     | null: false |
-| building name|  string     |             | 
-| telephone    |  string     |  ---------- |
+| building_name|  string     | null: false | 
+| telephone    |  integer    | null: false |
+t.references :user, foreign_key: true
+
+Association
+has_many :items
+
