@@ -56,10 +56,10 @@ has_one:mailing_adresses
 | adress       |  string     | null: false       |
 | building_name|  string     | ----------        | 
 | telephone    |  string     | null: false       |
-| user_id      |  reference  | foreign_key: true |
+| purchase     |  references | foreign_key: true |
 
 
 Association
 belongs_to :purchase
-has_one:purchaser
+
 
