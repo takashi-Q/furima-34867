@@ -37,12 +37,12 @@ has_one:mailing_adresses
 
 | Column      |  Type       |  Options           |
 | ----------- |  -----------|  ----------        |
-| user_id     |  string     |  foreign_key: true |
-| item_id     |  string     |  foreign_key: true |
+| user_id     |  integer    |  foreign_key: true |
+| item_id     |  integer    |  foreign_key: true |
 
 Association
-belongs_to:items
-has_many :users
+belongs_to:item
+belongs_to:user
 
 
 ## mailing_adressesテーブル
@@ -50,7 +50,7 @@ has_many :users
 | Column       |  Type       | Options     |
 | -----------  |  -----------|  ---------- |
 | postal_code  |  string     | null: false |
-| pref         |  string     | null: false |
+| area_id      |  string     | null: false |
 | municipality |  string     | null: false |
 | adress       |  string     | null: false |
 | building_name|  string     | ----------  |
@@ -58,5 +58,5 @@ has_many :users
 
 
 Association
-has_one:items
+belongs_to :purchase
 
