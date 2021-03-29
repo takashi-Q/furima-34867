@@ -45,7 +45,7 @@ has_one:purchaser
 Association
 belongs_to:item
 belongs_to:user
-has_one:mailing_adresses
+has_one:mailing_adress
 
 
 ## mailing_adressesテーブル
@@ -62,6 +62,6 @@ has_one:mailing_adresses
 
 
 Association
-belongs_to :purchase
+belongs_to :purchaser
 
 
