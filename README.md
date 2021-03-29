@@ -12,45 +12,51 @@
 
 Association
 has_many :items
+has_many :purchasers
 
 ## items テーブル
 
-| Column       |  Type       |            Options                     |
-| -----------  |  -----------|          ----------                    |
-| product_name |  string     |          null: false                   |
-| description  |  text       |          null: false                   |
-| category     |  string     |          null: false                   |
-| status       |  string     |          null: false                   |
-| burden       |  string     |          null: false                   |
-| area         |  string     |          null: false                   |
-| days_ship    |  string     |          null: false                   |
-| price        |  integer    |          null: false                   |
-| user         |  reference  |     null: false, foreign_key: true     |     
+| Column          |  Type       |            Options    　　              |
+| -----------     |  -----------|          ----------                    |
+| product_name    |  string     |          null: false                   |
+| description     |  text       |          null: false                   |
+| category_id     |  integer    |          null: false                   |
+| status_id       |  integer    |          null: false                   |
+| burden_id       |  integer    |          null: false                   |
+| area_id         |  integer    |          null: false                   |
+| days_ship_id    |  integer    |          null: false                   |
+| price           |  integer    |          null: false                   |
+| user            |  reference  |      foreign_key: true                 |     
 
 Association
-has_one:purchaser
+has_one:purchasers
+has_one:mailing_adresses
 
-### purchaserテーブル
 
-| Column      |  Type       | Options     |
-| ----------- |  -----------|  ---------- |
-| name        |  string     | null: false |
-| bought_item |  string     | null: false |
+### purchasersテーブル
+
+| Column      |  Type       |  Options           |
+| ----------- |  -----------|  ----------        |
+| user_id     |  string     |  foreign_key: true |
+| item_id     |  string     |  foreign_key: true |
 
 Association
 belongs_to:items
+has_many :users
 
-## mailing adressテーブル
+
+## mailing_adressesテーブル
 
 | Column       |  Type       | Options     |
 | -----------  |  -----------|  ---------- |
 | postal_code  |  string     | null: false |
+| pref         |  string     | null: false |
 | municipality |  string     | null: false |
 | adress       |  string     | null: false |
-| building_name|  string     | null: false | 
-| telephone    |  integer    | null: false |
-t.references :user, foreign_key: true
+| building_name|  string     | ----------  |
+| telephone    |  string     | null: false |
+
 
 Association
-has_many :items
+has_one:items
 
