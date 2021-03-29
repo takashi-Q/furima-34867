@@ -14,6 +14,7 @@ Association
 has_many :items
 has_many :purchasers
 
+
 ## items テーブル
 
 | Column          |  Type       |            Options    　　              |
@@ -29,6 +30,7 @@ has_many :purchasers
 | user            |  references |      foreign_key: true                 |     
 
 Association
+belongs_to:user
 has_one:purchaser
 
 
