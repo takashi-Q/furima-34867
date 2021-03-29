@@ -26,11 +26,11 @@ has_many :purchasers
 | area_id         |  integer    |          null: false                   |
 | days_ship_id    |  integer    |          null: false                   |
 | price           |  integer    |          null: false                   |
-| user            |  reference  |      foreign_key: true                 |     
+| user            |  references |      foreign_key: true                 |     
 
 Association
-has_one:purchasers
-has_one:mailing_adresses
+has_one:purchaser
+
 
 
 ### purchasersテーブル
@@ -43,20 +43,23 @@ has_one:mailing_adresses
 Association
 belongs_to:item
 belongs_to:user
+has_one:mailing_adresses
 
 
 ## mailing_adressesテーブル
 
-| Column       |  Type       | Options     |
-| -----------  |  -----------|  ---------- |
-| postal_code  |  string     | null: false |
-| area_id      |  string     | null: false |
-| municipality |  string     | null: false |
-| adress       |  string     | null: false |
-| building_name|  string     | ----------  |
-| telephone    |  string     | null: false |
+| Column       |  Type       | Options            
+| -----------  |  -----------|  ----------       |
+| postal_code  |  string     | null: false       |
+| area_id      |  integer    | null: false       |
+| municipality |  string     | null: false       |
+| adress       |  string     | null: false       |
+| building_name|  string     | ----------        | 
+| telephone    |  string     | null: false       |
+| user_id      |  reference  | foreign_key: true |
 
 
 Association
 belongs_to :purchase
+has_one:purchaser
 
