@@ -8,7 +8,7 @@
 |             last_name       | string | null: false             |
 |            first_name_kana  | string | null: false             |
 |           last_name_kana    | string | null: false             |
-|             date            | string | null: false             |
+|             date            | date   | null: false             |
 
 Association
 has_many :items
@@ -21,9 +21,11 @@ has_many :items
 | description  |  text       |          null: false                   |
 | category     |  string     |          null: false                   |
 | status       |  string     |          null: false                   |
+| burden       |  string     |          null: false                   |
+| area         |  string     |          null: false                   |
+| days_ship    |  string     |          null: false                   |
 | price        |  integer    |          null: false                   |
-| exhibitor    |  reference  |     null: false, foreign_key: true     |     
-|
+| user         |  reference  |     null: false, foreign_key: true     |     
 
 Association
 has_one:purchaser
@@ -43,7 +45,7 @@ belongs_to:items
 | Column       |  Type       | Options     |
 | -----------  |  -----------|  ---------- |
 | postal_code  |  string     | null: false |
-| manicipality |  string     | null: false |
+| municipality |  string     | null: false |
 | adress       |  string     | null: false |
 | building_name|  string     | null: false | 
 | telephone    |  integer    | null: false |
