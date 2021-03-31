@@ -17,7 +17,7 @@ has_many :purchasers
 
 ## items テーブル
 
-| Column          |  Type       |            Options    　　              |
+| Column          |  Type       |            Options                     |
 | -----------     |  -----------|          ----------                    |
 | product_name    |  string     |          null: false                   |
 | description     |  text       |          null: false                   |
