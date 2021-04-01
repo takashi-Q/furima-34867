@@ -1,10 +1,8 @@
 class ItemsController < ApplicationController
   def index
- end
+  end
 
   def create
-    
-    @Items = Item.find(params[:id]) 
-    
+    @Items = Item.find(params[:id])
   end
 end
