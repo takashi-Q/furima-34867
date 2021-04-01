@@ -6,7 +6,7 @@ RSpec.describe User, type: :model do
       @user = FactoryBot.build(:user)
     end
 
-    it 'nameとemail、passwordとpassword_confirmationが存在すれば登録できること' do
+    it '全ての項目が正しければ登録できること' do
       expect(@user).to be_valid
     end
 
@@ -28,8 +28,8 @@ RSpec.describe User, type: :model do
       expect(@user.errors.full_messages).to include("Password can't be blank")
     end
     it 'passwordが6文字以上であれば登録できること' do
-      @user.password = '123456'
-      @user.password_confirmation = '123456'
+      @user.password = 'aaa123456'
+      @user.password_confirmation = 'aaa123456'
       expect(@user).to be_valid
     end
 
