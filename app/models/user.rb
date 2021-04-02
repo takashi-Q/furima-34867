@@ -7,7 +7,6 @@ class User < ApplicationRecord
   validates_format_of :password, with: PASSWORD_REGEX
   with_options presence: true do
     with_options format: { with: /\A[ぁ-んァ-ン一-龥々]/ } do
-      validates :name
       validates :first_name
       validates :last_name
     end
@@ -15,6 +14,7 @@ class User < ApplicationRecord
       validates :first_name_kana
       validates :last_name_kana
     end
+    validates :name
     validates :date
   end
 end
