@@ -32,25 +32,32 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include("Description can't be blank")
       end
 
-      it 'category_idが空では登録できないこと' do
+      it 'category_idは１を選択出来ない' do
         @item.category_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Category must be other than 1')
       end
 
-      it 'status_idが空では登録できないこと' do
+      it 'status_idは１を選択出来ない' do
         @item.status_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Status must be other than 1')
       end
 
-      it 'area_idが空では登録できないこと' do
+      it 'area_idは１を選択出来ない' do
         @item.area_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Area must be other than 1')
       end
 
-      it 'days_ship_idが空では登録できないこと' do
+
+      it 'burden_idは１を選択出来ない' do
+        @item.burden_id = 1
+        @item.valid?
+        expect(@item.errors.full_messages).to include('Burden must be other than 1')
+      end
+
+      it 'days_ship_idは１を選択出来ない' do
         @item.days_ship_id = 1
         @item.valid?
         expect(@item.errors.full_messages).to include('Days ship must be other than 1')
