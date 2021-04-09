@@ -1,16 +1,16 @@
 class ItemsController < ApplicationController
   def index
-    @item = Item.all.order('created_at DESC')
+    @items = Item.all.order('created_at DESC')
   end
 
-  # def create
-  #   @item = Item.new(item_params)
-  #   if @item.save
-  #     redirect_to root_path
-  #   else
-  #     render :new
-  #   end
-  # end
+  def create
+    @item = Item.new(item_params)
+    if @item.save
+      redirect_to root_path
+    else
+      render :new
+    end
+  end
 
   def new
     @item = Item.new

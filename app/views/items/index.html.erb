@@ -127,9 +127,9 @@
 
     <%= link_to '新規投稿商品', "image-item", class: "subtitle" %>
     <ul class='item-lists'>
-    <% if @item.present? %>
+    <% if @items.present? %>
     
-     <% @item.each do |item| %>
+     <% @items.each do |item| %>
       <li class='list'>
         <%= link_to "#" do %>
         <div class='item-img-content'>
