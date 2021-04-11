@@ -50,7 +50,6 @@ RSpec.describe Item, type: :model do
         expect(@item.errors.full_messages).to include('Area must be other than 1')
       end
 
-
       it 'burden_idは１を選択出来ない' do
         @item.burden_id = 1
         @item.valid?
