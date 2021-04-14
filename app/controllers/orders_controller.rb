@@ -2,7 +2,6 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!, only: [:index]
   before_action :item_find, only: [:index,:create]
   before_action :order_item, only: [:index]
-  before_action :pay_item, only: [:create]
   def index
     @orderpurchaser = Orderpurchaser.new
     
@@ -13,7 +12,7 @@ class OrdersController < ApplicationController
    
 
     if @orderpurchaser.valid?
-  
+      pay_item
       @orderpurchaser.save
       redirect_to root_path
     else
