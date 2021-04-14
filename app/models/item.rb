@@ -7,6 +7,8 @@ class Item < ApplicationRecord
   belongs_to :category
   belongs_to :days_ship
   belongs_to :status
+  has_one :purchaser
+
   with_options presence: true do
     validates :image
     validates :product_name
