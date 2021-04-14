@@ -48,7 +48,7 @@ belongs_to:user
 has_one:mailing_adress
 
 
-## mailing_adressesテーブル
+## ordersテーブル
 
 | Column       |  Type       | Options            
 | -----------  |  -----------|  ----------       |
