@@ -19,6 +19,13 @@ RSpec.describe Orderpurchaser, type: :model do
           @order.telephone = '11111111'
           expect(@order).to be_valid
         end
+
+        it 'building_nameは無くても良い' do
+          @order.building_name = '日本'
+          expect(@order).to be_valid
+        end
+
+
       end
     end
     context '商品が購入出来ないとき' do
@@ -29,7 +36,7 @@ RSpec.describe Orderpurchaser, type: :model do
       end
 
       it 'postal_codeにはー(ハイフン)が無ければ保存できないこと' do
-        @order.postal_code = '-'
+        @order.postal_code = '1234567'
         @order.valid?
         expect(@order.errors.full_messages).to include('Postal code is invalid')
       end
@@ -74,6 +81,18 @@ RSpec.describe Orderpurchaser, type: :model do
         @order.token = ''
         @order.valid?
         expect(@order.errors.full_messages).to include("Token can't be blank")
+      end
+
+      it 'user_idが空では登録できないこと' do
+        @order.user_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("User can't be blank")
+      end
+        it 'item_idが空では登録できないこと' do
+          @order.item_id = ''
+          @order.valid?
+          expect(@order.errors.full_messages).to include("Item can't be blank")
+     
       end
     end
   end

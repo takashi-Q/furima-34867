@@ -5,6 +5,8 @@ class Orderpurchaser
   with_options presence: true do
     validates :postal_code, format: { with: /\A[0-9]{3}-[0-9]{4}\z/ }
     validates :municipality, format: { with: /\A[ぁ-んァ-ン一-龥]/ }
+    validates :user_id
+    validates :item_id
     validates :adress
     validates :token
     validates :telephone, format: { with: /\A\d{0,11}\z/ }
