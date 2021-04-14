@@ -21,7 +21,7 @@ RSpec.describe Orderpurchaser, type: :model do
         end
 
         it 'building_nameは無くても良い' do
-          @order.building_name = '日本'
+          @order.building_name = nil
           expect(@order).to be_valid
         end
       end
