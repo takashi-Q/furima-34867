@@ -24,8 +24,6 @@ RSpec.describe Orderpurchaser, type: :model do
           @order.building_name = '日本'
           expect(@order).to be_valid
         end
-
-
       end
     end
     context '商品が購入出来ないとき' do
@@ -88,11 +86,10 @@ RSpec.describe Orderpurchaser, type: :model do
         @order.valid?
         expect(@order.errors.full_messages).to include("User can't be blank")
       end
-        it 'item_idが空では登録できないこと' do
-          @order.item_id = ''
-          @order.valid?
-          expect(@order.errors.full_messages).to include("Item can't be blank")
-     
+      it 'item_idが空では登録できないこと' do
+        @order.item_id = ''
+        @order.valid?
+        expect(@order.errors.full_messages).to include("Item can't be blank")
       end
     end
   end
