@@ -12,11 +12,11 @@ class OrdersController < ApplicationController
 
     if @orderpurchaser.valid?
       Payjp.api_key = ENV['PAYJP_SECRET_KEY']
-      Payjp.api_key = 'sk_test_0efe6a61722aa95c64e454cc'  # 自身のPAY.JPテスト秘密鍵を記述しましょう
+      Payjp.api_key = 'sk_test_0efe6a61722aa95c64e454cc' 
       Payjp::Charge.create(
-        amount: @item.price, # 商品の値段
-        card: orderpurchaser_params[:token], # カードトークン
-        currency: 'jpy'                 # 通貨の種類（日本円）
+        amount: @item.price,
+        card: orderpurchaser_params[:token], 
+        currency: 'jpy'               
       )
       @orderpurchaser.save
       redirect_to root_path
