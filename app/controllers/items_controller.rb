@@ -26,9 +26,19 @@ class ItemsController < ApplicationController
   end
 
   def update
-    @item.update(item_params)
+    if @item.update(item_params)
     redirect_to root_path
+    else
+    render :edit
   end
+<<<<<<< Updated upstream
+=======
+end
+  def destroy
+    @item.destroy
+    redirect_to root_path if @item.destroy
+  end
+>>>>>>> Stashed changes
 
   private
 
